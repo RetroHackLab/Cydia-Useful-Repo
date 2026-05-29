@@ -1,0 +1,53 @@
+name: Compiler and Deploy Repo
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Dynamically Scan and Generate Indexes
+      run: |
+        sudo apt-get update && sudo apt-get install -y bzip2
+        rm -f Packages.gz Packages.bz2
+        gzip -9fk Packages
+        bzip2 -9fk Packages
+
+    - name: Upload and Push Generated Files to Main Branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add -f Packages Packages.gz Packages.bz2 Release
+        git commit -m "Autogen: Refresh repo indexes (.bz2, .gz) [skip ci]" || echo "No changes"
+        git push origin main
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload Artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
+
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+      echo "\n [V] Environement initialized Succesfuly"
