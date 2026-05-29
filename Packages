@@ -1,0 +1,169 @@
+Package: ai.akemi.appsyncunified
+Name: AppSync Unified
+Version: 116.0
+Architecture: iphoneos-arm
+Maintainer: Karen / あけみ
+Author: Karen / あけみ
+Filename: debs/ai.akemi.appsyncunified_116.0_iphoneos-arm.akemi-git-235aca6cddfbdc9fa87fcb5b2aec2df37ed6d65a.deb
+Size: 51658
+MD5sum: 536009a11dad57e48a5563224eaffaff
+SHA1: e0fa412cb3c26718887edd834804c88909297079
+SHA256: 0036f28fcbdb165d4f58968a237ca9fe7b6ed33fea25b9a5eb1fc141f6bf5a09
+Description: Enables the ability to install unsigned/fakesigned iOS applications.
+
+Package: bag.xml.tuberepair
+Name: TubeRepair [BETA]
+Version: 1.1-Beta-2
+Architecture: iphoneos-arm
+Maintainer: bag.xml, Requis
+Author: bag.xml, Requis
+Filename: debs/bag.xml.tuberepair_1.1-Beta-2_iphoneos-arm.deb
+Size: 101918
+MD5sum: 0a0b6a1a538c9aa369ef905fc6d1eb68
+SHA1: 2ccb6f9877e86a38c59b55c97f529beb37ebe866
+SHA256: a0728c4753df3625d847ba79c5128123020698f5c22f1890a2eb1b9da659727e
+Description: TubeRepair is a tweak that redirects YouTube API traffic from the classic YouTube app, and the App Store YouTube app to a designated custom server. You could also just say that it fixes both applications. For assistance refer to the guide (https://tuberepair.bag-xml.com/guide/)
+
+Package: uk.invoxiplaygames.checkmatestore
+Name: Checkmate, Store!
+Version: 1.2
+Architecture: iphoneos-arm
+Maintainer: InvoxiPlayGames
+Author: InvoxiPlayGames
+Filename: debs/checkmatestore-1.2.deb
+Size: 5200
+MD5sum: 5245fc6431aadd77110a226b8f0d9ee8
+SHA1: 1330e7a5c051c6dfbff558184de78accecb19032
+SHA256: 0863fee434c9a1aed89696655b4075aa3edde2b2ad3ee2a0e99a99428c17ffe3
+Description: Disable capability limits in the App Store.
+
+Package: com.saurik.afc2d
+Name: Apple File Conduit "2"
+Version: 1.2
+Architecture: iphoneos-arm
+Maintainer: Jay Freeman (saurik)
+Author: Jay Freeman (saurik)
+Filename: debs/com.saurik.afc2d_1.2_iphoneos-arm.deb
+Size: 18114
+MD5sum: 34291f44d22cfbbf3eb4bad0ade3b89c
+SHA1: bddaf385263b9aad2b032b2116179f83afd077cc
+SHA256: 287ac4ce1a6e4095e824fd90f71fed301ff7d9508f1cd2d87a7354053e347a3c
+Description: allow full file-system access over USB
+
+Package: cydia
+Name: Cydia Installer
+Version: 1.1.30
+Architecture: iphoneos-arm
+Maintainer: Jay Freeman (saurik)
+Author: Jay Freeman (saurik)
+Filename: debs/cydia_1.1.30_iphoneos-arm.deb
+Size: 1292624
+MD5sum: bb0cdc40d3abac5b874972ad8a8b70a1
+SHA1: a237e6a09c77e91e1c89d212e53a85e691b0b47a
+SHA256: f80a5228b2bacbd8e2640d96dc1b15a5cf0db681d2ed976cf53f1f5c64a9b184
+Description: graphical iPhone front-end for APT
+
+Package: trevir.discord
+Name: Discord Classic
+Version: 0.8.5
+Architecture: iphoneos-arm
+Maintainer: Trevir
+Author: Trevir
+Filename: debs/discordclassic-0.8.5.deb
+Size: 819392
+MD5sum: a0c2471c860114d3d7d76ba7e1b7e61b
+SHA1: 9dc57ee4d8153fb90f03f08e5f0cbbb7aee8e2b4
+SHA256: 26d3e7b7f46286439774f358b0958e3eaaf53808a640fa06db9fdf7ba8a44bcc
+Description: Discord client for iOS 5 & 6 by Trevir
+
+Package: eu.heinelt.ifile
+Name: iFile
+Version: 2.2.0-1
+Architecture: iphoneos-arm
+Maintainer: Carsten Heinelt
+Author: Carsten Heinelt
+Filename: debs/eu.heinelt.ifile_2.2.0-1_iphoneos-arm.deb
+Size: 9751882
+MD5sum: 88766f339cc7b150e356331e4594db7b
+SHA1: 3ff2ab2d71d013510c2d7946165719757878a613
+SHA256: 9f8c38312d7676a88507dcac6196261185928c9b38666bab80ac50fcfb8c3c61
+Description: A File Manager and Viewer. iFile is a file manager runnning under user root. It allows fast navigation through the iPhone file system. It allows direct viewing of files of various types, e.g. movies, sound, text, HTML, Microsoft types, PDF, ZIP. For PDF files direct jumping to pages is possible. ZIP packing and unpacking is also supported. Files can be sent as email attachments. Text files and property lists can be edited. Folders and files can be bookmarked. In addition, files can be uploaded and downloaded from iFile's built-in web server.
+
+Package: libactivator
+Name: Activator
+Version: 1.9.10
+Architecture: iphoneos-arm
+Maintainer: Ryan Petrich
+Author: Ryan Petrich
+Filename: debs/libactivator_1.9.10_iphoneos-arm.deb
+Size: 1102712
+MD5sum: 5a3da620ac3bd7c75118baf3b9de5b8f
+SHA1: 1f10a7ccbd2d4dee39d055137da6ea788c7ea8d5
+SHA256: 3e22208b83ea1fea048e329fc9ae3c52de19e96809cfbb4ffe7bb235dcb29cf3
+Description: Centralized gestures, button and shortcut management for iOS
+
+Package: libactivator
+Name: Activator
+Version: 1.9.13
+Architecture: iphoneos-arm
+Maintainer: Ryan Petrich
+Author: Ryan Petrich
+Filename: debs/libactivator_1.9.13_iphoneos-arm.deb
+Size: 930776
+MD5sum: 3284dc032c096bc82c0fb4fa465a0386
+SHA1: a366dce78423356fb52b23e49447fd44d25d62ee
+SHA256: 35bde71d2a2d2ef02b7096e513f693744eb27445b8b2a610ce151f783407e8ad
+Description: Centralized gestures, button and shortcut management for iOS
+
+Package: libactivator
+Name: Activator
+Version: 1.9.7
+Architecture: iphoneos-arm
+Maintainer: Ryan Petrich
+Author: Ryan Petrich
+Filename: debs/libactivator_1.9.7_iphoneos-arm.deb
+Size: 1117756
+MD5sum: 785b119040912629c3d8643fcd14e62b
+SHA1: a1fc38027ba28d7668ab8001e728dc4d6bb07410
+SHA256: e180291ba11d69d5c567fb89eadec190cba8c89e09c4c28bda2ae29a74d57861
+Description: Centralized gestures, button and shortcut management for iOS
+
+Package: libactivator
+Name: Activator
+Version: 1.9.8
+Architecture: iphoneos-arm
+Maintainer: Ryan Petrich
+Author: Ryan Petrich
+Filename: debs/libactivator_1.9.8_iphoneos-arm.deb
+Size: 1095742
+MD5sum: ef2202af6c2cea2fa624ac6ce0899327
+SHA1: f59bf849369826cab86f42860d181a2ce2721f0c
+SHA256: ff4bd6fa29421712bd367f3bc9a84b87587b36adaf0c8a49c0d7f8e8847a686b
+Description: Centralized gestures, button and shortcut management for iOS
+
+Package: libactivator
+Name: Activator
+Version: 1.9.9
+Architecture: iphoneos-arm
+Maintainer: Ryan Petrich
+Author: Ryan Petrich
+Filename: debs/libactivator_1.9.9_iphoneos-arm.deb
+Size: 1091548
+MD5sum: ca68a77e8f75a32f2e76197c64676550
+SHA1: ba8d6624b4e1fdb107a4dc6d4ce77cb99494ea11
+SHA256: 7b8cc8937ac6c4550e2a6846fbd32f4b46c7f83238a92ae407570010bd9a50bd
+Description: Centralized gestures, button and shortcut management for iOS
+
+Package: uk.invoxiplaygames.simalertsuppression
+Name: SIM Alert Suppression
+Version: 1.0
+Architecture: iphoneos-arm
+Maintainer: InvoxiPlayGames
+Author: InvoxiPlayGames
+Filename: debs/simalertsuppression-1.0.deb
+Size: 2810
+MD5sum: 93cd24e6c82108068e54435453587ac4
+SHA1: 9eff439f4635d83fffbd9565ca926612d08f2bf9
+SHA256: 4f6fb6fc8743d1f1902513fcda5ba96c3cb189a4fe550b735262e268e78baab4
+Description: Removes SIM-related alerts from SpringBoard
+

@@ -1,0 +1,7 @@
+Origin: Cydia Useful Repo
+Label: Cydia Useful Repo
+Suite: stable
+Version: 1.0.0
+Codename: ios
+Architectures: iphoneos-arm
+Description: Cydia Useful Repo contain all requirement useful Tweaks
