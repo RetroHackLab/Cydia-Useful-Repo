@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: # Permet de forcer manuellement le déploiement depuis l'onglet Actions
 
 permissions:
   contents: write
@@ -25,7 +26,17 @@ jobs:
 
     - name: Dynamically Scan and Generate Indexes
       run: |
-        sudo apt-get update && sudo apt-get install -y bzip2
+        echo "[*] Installing dpkg-dev and compression tools..."
+        sudo apt-get update && sudo apt-get install -y dpkg-dev bzip2 gzip
+        
+        echo "[*] Scanning debs folder..."
+        # On s'assure que le dossier debs existe
+        mkdir -p debs
+        
+        # Génération du fichier Packages brut
+        dpkg-scanpackages -m debs > Packages
+        
+        echo "[*] Compressing indexes..."
         rm -f Packages.gz Packages.bz2
         gzip -9fk Packages
         bzip2 -9fk Packages
@@ -36,8 +47,14 @@ jobs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add -f Packages Packages.gz Packages.bz2 Release
-        git commit -m "Autogen: Refresh repo indexes (.bz2, .gz) [skip ci]" || echo "No changes"
+        
+        # Ajout forcé des index mis à jour
+        git add -f Packages Packages.gz Packages.bz2
+        
+        # On ajoute le fichier Release s'il existe dans ton arborescence
+        if [ -f "Release" ]; then git add -f Release; fi
+        
+        git commit -m "Autogen: Refresh repo indexes (.bz2, .gz) [skip ci]" || echo "No changes to commit"
         git push origin main
 
     - name: Setup Pages
@@ -50,4 +67,9 @@ jobs:
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
-      echo "\n [V] Environement initialized Succesfuly"
+
+    - name: Finalize Status Notification
+      run: |
+        echo "========================================="
+        echo " [V] Environment deployed successfully! "
+        echo "========================================="
