@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+# Variable globale pour forcer l'environnement d'exécution sur Node.js 24
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 permissions:
   contents: write
   id-token: write
