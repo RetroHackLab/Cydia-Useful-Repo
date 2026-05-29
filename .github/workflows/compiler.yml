@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # Permet de forcer manuellement le déploiement depuis l'onglet Actions
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -30,10 +30,7 @@ jobs:
         sudo apt-get update && sudo apt-get install -y dpkg-dev bzip2 gzip
         
         echo "[*] Scanning debs folder..."
-        # On s'assure que le dossier debs existe
         mkdir -p debs
-        
-        # Génération du fichier Packages brut
         dpkg-scanpackages -m debs > Packages
         
         echo "[*] Compressing indexes..."
@@ -53,18 +50,17 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         
-        # Ajout forcé des index mis à jour et du CNAME
         git add -f Packages Packages.gz Packages.bz2 CNAME
-        
-        # On ajoute le fichier Release s'il existe dans ton arborescence
         if [ -f "Release" ]; then git add -f Release; fi
         if [ -f "index.html" ]; then git add -f index.html; fi
         
         git commit -m "Autogen: Refresh repo indexes (.bz2, .gz) & CNAME [skip ci]" || echo "No changes to commit"
         git push origin main
 
-    - name: Setup Pages
+    - name: Setup Pages (With Auto-Enablement Force)
       uses: actions/configure-pages@v5
+      with:
+        enablement: true # Force GitHub à créer le site Pages si l'API renvoie un 404
 
     - name: Upload Artifact
       uses: actions/upload-pages-artifact@v3
