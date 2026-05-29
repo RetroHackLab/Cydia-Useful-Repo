@@ -16,7 +16,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  # PREMIER JOB : COMPILATION ET MISE À JOUR DU DÉPÔT GIT
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
@@ -57,10 +58,20 @@ jobs:
         git commit -m "Autogen: Refresh repo indexes (.bz2, .gz) & CNAME [skip ci]" || echo "No changes to commit"
         git push origin main
 
+  # DEUXIÈME JOB : DEPLOIEMENT PROPRE SUR GITHUB PAGES
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build # Ce job attend impérativement que le push du premier job soit terminé !
+    steps:
+    - name: Checkout Updated Branch
+      uses: actions/checkout@v4
+      with:
+        ref: main # Récupère les fichiers fraîchement mis à jour par le bot
+
     - name: Setup Pages (With Auto-Enablement Force)
       uses: actions/configure-pages@v5
       with:
-        enablement: true # Force GitHub à créer le site Pages si l'API renvoie un 404
+        enablement: true
 
     - name: Upload Artifact
       uses: actions/upload-pages-artifact@v3
