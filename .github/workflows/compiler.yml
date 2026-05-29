@@ -1,26 +1,28 @@
-name: Compiler and Deploy Repo
+name: Compiler Repo Indexes
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.github/workflows/**'
+      - 'Packages'
+      - 'Packages.gz'
+      - 'Packages.bz2'
+      - 'CNAME'
   workflow_dispatch:
 
-# Variable globale pour forcer l'environnement d'exécution sur Node.js 24
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 permissions:
   contents: write
-  id-token: write
-  pages: write
 
 concurrency:
-  group: pages
+  group: compiler
   cancel-in-progress: true
 
 jobs:
-  # PREMIER JOB : COMPILATION ET MISE À JOUR DU DÉPÔT GIT
   build:
     runs-on: ubuntu-latest
     steps:
@@ -45,7 +47,7 @@ jobs:
 
     - name: Configuration du Domaine Personnalisé (CNAME)
       run: |
-        echo "[*] Generating CNAME for GitHub Pages..."
+        echo "[*] Generating CNAME..."
         echo "repo.cydiauseful.com" > CNAME
 
     - name: Upload and Push Generated Files to Main Branch
@@ -59,35 +61,5 @@ jobs:
         if [ -f "Release" ]; then git add -f Release; fi
         if [ -f "index.html" ]; then git add -f index.html; fi
         
-        git commit -m "Autogen: Refresh repo indexes (.bz2, .gz) & CNAME [skip ci]" || echo "No changes to commit"
+        git commit -m "Autogen: Refresh repo indexes (.bz2, .gz) & CNAME" || echo "No changes to commit"
         git push origin main
-
-  # DEUXIÈME JOB : DEPLOIEMENT PROPRE SUR GITHUB PAGES
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build # Ce job attend impérativement que le push du premier job soit terminé !
-    steps:
-    - name: Checkout Updated Branch
-      uses: actions/checkout@v4
-      with:
-        ref: main # Récupère les fichiers fraîchement mis à jour par le bot
-
-    - name: Setup Pages (With Auto-Enablement Force)
-      uses: actions/configure-pages@v5
-      with:
-        enablement: true
-
-    - name: Upload Artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: '.'
-
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
-
-    - name: Finalize Status Notification
-      run: |
-        echo "========================================="
-        echo " [V] Environment deployed successfully! "
-        echo " URL: https://repo.cydiauseful.com       "
-        echo "========================================="
