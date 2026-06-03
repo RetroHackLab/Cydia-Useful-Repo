@@ -48,7 +48,7 @@ jobs:
     - name: Configuration du Domaine Personnalisé (CNAME)
       run: |
         echo "[*] Generating CNAME..."
-        echo "repo.cydiauseful.com" > CNAME
+        echo "cydiauseful.github.io" > CNAME
 
     - name: Upload and Push Generated Files to Main Branch
       env:
